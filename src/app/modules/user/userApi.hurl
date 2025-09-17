@@ -16,12 +16,15 @@ Content-Type: application/json
 }
 
 
+
+#--------- CREATE USER WITHOUT OTP EMAIL VERIFICATION-----------
 POST http://localhost:5002/api/v1/users/create-user
 Content-Type: application/json
 
 {
   "email": "hasan.doe@example.com",
+  "password": "Aa@123456",
   "role":"Seller",
   "fullName": "Jane Doe"
 }
-
+#--------- CREATE USER WITHOUT OTP EMAIL VERIFICATION-----------

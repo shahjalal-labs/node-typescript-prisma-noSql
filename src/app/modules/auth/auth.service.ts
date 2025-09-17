@@ -27,7 +27,7 @@ const loginUserIntoDB = async (payload: {
 
   const isPasswordValid = await bcrypt.compare(
     payload.password,
-    user?.password
+    user?.password,
   );
 
   if (!isPasswordValid) {
@@ -46,7 +46,7 @@ const loginUserIntoDB = async (payload: {
   const accessToken = jwtHelpers.generateToken(
     { id: user.id, email: user.email, role: user.role },
     config.jwt.jwt_secret as string,
-    config.jwt.expires_in as string
+    config.jwt.expires_in as string,
   );
 
   return {
@@ -70,7 +70,7 @@ const googleLogin = async (payload: {
     const accessToken = jwtHelpers.generateToken(
       { id: user.id, email: user.email, role: user.role },
       config.jwt.jwt_secret as string,
-      config.jwt.expires_in as string
+      config.jwt.expires_in as string,
     );
     return {
       accessToken,
@@ -89,7 +89,7 @@ const googleLogin = async (payload: {
   const accessToken = jwtHelpers.generateToken(
     { id: newUser.id, email: newUser.email, role: newUser.role },
     config.jwt.jwt_secret as string,
-    config.jwt.expires_in as string
+    config.jwt.expires_in as string,
   );
 
   return {
@@ -100,7 +100,7 @@ const googleLogin = async (payload: {
 // update or add user location in Redis using GEO
 const userLocationUpdateInRedis = async (
   userId: string,
-  userLocation: { longitude: number; latitude: number }
+  userLocation: { longitude: number; latitude: number },
 ) => {
   const redisGeoKey = "userLocations"; // you can keep all users under one key
 
@@ -172,7 +172,7 @@ const verifyForgotPasswordOtpCodeDB = async (payload: {
   const forgetToken = jwtHelpers.generateToken(
     { id: userId, email },
     config.jwt.jwt_secret as string,
-    config.jwt.expires_in as string
+    config.jwt.expires_in as string,
   );
 
   return { forgetToken };
@@ -187,7 +187,7 @@ const resetForgotPasswordDB = async (newPassword: string, userId: string) => {
   const email = existingUser.email as string;
   const hashedPassword = await bcrypt.hash(
     newPassword,
-    Number(config.jwt.gen_salt)
+    Number(config.jwt.gen_salt),
   );
 
   await prisma.user.update({
@@ -223,7 +223,7 @@ const myProfile = async (userId: string) => {
 const updateProfileIntoDB = async (
   userId: string,
   userData: User,
-  file: Express.Multer.File
+  file: Express.Multer.File,
 ) => {
   console.log("file:", file, "data:", userData);
   const user = await prisma.user.findUnique({ where: { id: userId } });
