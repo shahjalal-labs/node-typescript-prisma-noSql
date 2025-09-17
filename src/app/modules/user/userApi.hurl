@@ -10,6 +10,7 @@ Content-Type: application/json
 
 {
   "email": "raihan.doe@example.com",
+  "role":"Seller",
   "fullName": "Jane Doe",
   "fcmToken": "abc123xyz456"
 }
