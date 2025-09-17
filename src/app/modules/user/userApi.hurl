@@ -9,7 +9,7 @@ POST http://localhost:5002/api/v1/auth/google-login
 Content-Type: application/json
 
 {
-  "email": "raihan.doe@example.com",
+  "email": "sadman.doe@example.com",
   "role":"Seller",
   "fullName": "Jane Doe",
   "fcmToken": "abc123xyz456"
