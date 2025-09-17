@@ -16,6 +16,11 @@ const getProductById = async (id: string) => {
   return result;
 };
 
+const getProductByUserIdFromDB = async (id: string) => {
+  const result = await prisma.product.findUnique({ where: { id } });
+  return result;
+};
+
 const updateProduct = async (id: string, data: any) => {
   await prisma.product.update({ where: { id }, data });
   return;
@@ -30,6 +35,7 @@ export const productServices = {
   createProduct,
   getAllProducts,
   getProductById,
+  getProductByUserIdFromDB,
   updateProduct,
   deleteProduct,
 };

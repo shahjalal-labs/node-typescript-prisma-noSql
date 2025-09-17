@@ -5,9 +5,9 @@ POST http://localhost:5002/api/v1/products
 Content-Type: application/json
 
 {
-  "name": "Product 1",
+  "name": "Electric bulb",
   "price": 100,
   "description": "This is a product",
-  "sellerId": ""
+  "sellerId": "68ca50ed1768bf9be41c45db"
 }
 
