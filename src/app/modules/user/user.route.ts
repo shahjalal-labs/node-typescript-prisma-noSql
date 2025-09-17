@@ -12,6 +12,13 @@ router.post(
   validateRequest(userValidation.userRegisterValidationSchema),
   UserControllers.createUser,
 );
+
+// create user without otp email verification
+router.post(
+  "/create-user",
+  validateRequest(userValidation.userCreateValidationSchema),
+  UserControllers.CreateUser,
+);
 router.post(
   "/signup-verification",
   validateRequest(userValidation.verificationSchema),

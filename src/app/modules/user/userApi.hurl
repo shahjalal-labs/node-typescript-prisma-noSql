@@ -15,3 +15,13 @@ Content-Type: application/json
   "fcmToken": "abc123xyz456"
 }
 
+
+POST http://localhost:5002/api/v1/users/create-user
+Content-Type: application/json
+
+{
+  "email": "hasan.doe@example.com",
+  "role":"Seller",
+  "fullName": "Jane Doe"
+}
+

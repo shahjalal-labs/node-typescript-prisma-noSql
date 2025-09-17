@@ -1,11 +1,20 @@
+//
 import { Request, Response } from "express";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import { userService } from "./user.services";
 
+// create user without otp email verification
 const CreateUser = catchAsync(async (req, res) => {
   const result = await userService.createUserIntoDB(req.body);
+  sendResponse(res, {
+    success: true,
+    statusCode: 201,
+    message: "User created successfully",
+    data: result,
+  });
 });
+//
 // register user
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const result = await userService.createUser(req.body);
@@ -74,6 +83,7 @@ const deleteUser = catchAsync(async (req: any, res: Response) => {
 });
 
 export const UserControllers = {
+  CreateUser,
   createUser,
   signupVerification,
   getUsers,
