@@ -6,7 +6,48 @@ import prisma from "../../../shared/prisma";
 import generateOTP from "../../../helpers/generateOtp";
 import sendEmail from "../../../helpers/sendEmail";
 import redisClient from "../../../helpers/redis";
+import { jwtHelpers } from "../../../helpers/jwtHelpers";
+import config from "../../../config";
+// create new user
 
+const createUserIntoDB = async (payload: User) => {
+  const existingUser = await prisma.user.findFirst({
+    where: { email: payload.email },
+  });
+
+  if (existingUser) {
+    throw new ApiError(409, "email already exist!");
+  }
+
+  const hashedPassword = await bcrypt.hash(payload.password as string, 10);
+
+  const user = await prisma.user.create({
+    data: {
+      ...payload,
+
+      password: hashedPassword,
+
+      // stripeCustomerId: stripeAccount.id,
+    },
+  });
+
+  const accessToken = jwtHelpers.generateToken(
+    { id: user.id, email: user.email, role: user.role },
+
+    config.jwt.jwt_secret as string,
+
+    config.jwt.expires_in as string,
+  );
+
+  const { password, ...sanitizedUser } = user;
+
+  return {
+    accessToken,
+
+    user: sanitizedUser,
+  };
+};
+//
 //create new user
 const createUser = async (payload: User) => {
   const existingUser = await prisma.user.findFirst({

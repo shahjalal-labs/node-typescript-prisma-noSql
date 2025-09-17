@@ -17,7 +17,8 @@ const getProductById = async (id: string) => {
 };
 
 const getProductByUserIdFromDB = async (id: string) => {
-  const result = await prisma.product.findUnique({ where: { id } });
+  console.log(id, "product.service.ts", 20);
+  const result = await prisma.product.findMany({ where: { sellerId: id } });
   return result;
 };
 
