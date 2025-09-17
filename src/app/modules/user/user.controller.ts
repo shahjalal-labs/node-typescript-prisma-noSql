@@ -3,6 +3,9 @@ import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import { userService } from "./user.services";
 
+const CreateUser = catchAsync(async (req, res) => {
+  const result = await userService.createUserIntoDB(req.body);
+});
 // register user
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const result = await userService.createUser(req.body);
@@ -49,10 +52,7 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
 
 //update user
 const updateUser = catchAsync(async (req: Request, res: Response) => {
-  const updatedUser = await userService.updateUser(
-    req.params.id,
-    req.body
-  );
+  const updatedUser = await userService.updateUser(req.params.id, req.body);
   sendResponse(res, {
     success: true,
     statusCode: 200,

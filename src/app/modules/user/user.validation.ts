@@ -8,13 +8,13 @@ const userRegisterValidationSchema = z.object({
     .min(8, "Password must be at least 8 characters long")
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-      "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character"
+      "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character",
     ),
 });
 
 const verificationSchema = z.object({
   email: z.string().min(10, "Phone Number min 10 Digit"),
-  otp: z.string().min(4, "OTP must be at least 4 characters long")
+  otp: z.string().min(4, "OTP must be at least 4 characters long"),
 });
 
 const userUpdateValidationSchema = z.object({
@@ -31,8 +31,22 @@ const userUpdateValidationSchema = z.object({
   status: z.enum(["ACTIVE", "BLOCKED", "DELETED"]).optional(),
 });
 
+const userCreateValidationSchema = z.object({
+  fullName: z.string().min(2, "Full name must be at least 3 characters long"),
+  email: z.string().email("Invalid email address"),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters long")
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+      "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character",
+    ),
+  role: z.enum(["Seller", "User"]).optional(),
+});
+
 export const userValidation = {
   userRegisterValidationSchema,
   verificationSchema,
   userUpdateValidationSchema,
+  userCreateValidationSchema,
 };

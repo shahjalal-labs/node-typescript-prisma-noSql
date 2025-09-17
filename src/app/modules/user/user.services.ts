@@ -200,6 +200,7 @@ const deleteUser = async (userId: string, loggedId: string) => {
 
 export const userService = {
   createUser,
+  createUserIntoDB,
   signupVerification,
   getUsers,
   getSingleUser,
