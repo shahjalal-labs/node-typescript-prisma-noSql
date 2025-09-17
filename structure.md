@@ -3,6 +3,7 @@
 ```bash
 .
 ├── bun.lock
+├── developer.md
 ├── module.js
 ├── package.json
 ├── package-lock.json
@@ -29,6 +30,7 @@
 │   │   │   │   ├── auth.service.ts
 │   │   │   │   └── auth.validation.ts
 │   │   │   └── user
+│   │   │       ├── userApi.hurl
 │   │   │       ├── user.controller.ts
 │   │   │       ├── user.route.ts
 │   │   │       ├── user.services.ts
@@ -71,6 +73,6 @@
 │   └── google.png
 └── vercel.json
 
-16 directories, 53 files
+16 directories, 55 files
 
 ```
