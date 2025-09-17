@@ -18,7 +18,7 @@ router.post(
   UserControllers.signupVerification,
 );
 // router.get("/", auth(UserRole.Admin), UserControllers.getUsers);
-router.get("/", auth(), UserControllers.getUsers);
+router.get("/ruhulaminvai/amin", auth(), UserControllers.getUsers);
 router.get("/:id", auth(), UserControllers.getSingleUser);
 router.put(
   "/:id",
