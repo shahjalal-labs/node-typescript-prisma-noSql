@@ -27,4 +27,4 @@ Content-Type: application/json
   "role":"Seller",
   "fullName": "Jane Doe"
 }
-#--------- CREATE USER WITHOUT OTP EMAIL VERIFICATION-----------
+#--------- CREATE USER WITHOUT OTP EMAIL VERIFICATION-----------00
