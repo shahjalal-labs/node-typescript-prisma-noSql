@@ -10,20 +10,21 @@ const router = express.Router();
 router.post(
   "/create",
   validateRequest(userValidation.userRegisterValidationSchema),
-  UserControllers.createUser
+  UserControllers.createUser,
 );
 router.post(
   "/signup-verification",
   validateRequest(userValidation.verificationSchema),
-  UserControllers.signupVerification
+  UserControllers.signupVerification,
 );
-router.get("/", auth(UserRole.Admin), UserControllers.getUsers);
+// router.get("/", auth(UserRole.Admin), UserControllers.getUsers);
+router.get("/", auth(), UserControllers.getUsers);
 router.get("/:id", auth(), UserControllers.getSingleUser);
 router.put(
   "/:id",
   validateRequest(userValidation.userUpdateValidationSchema),
   auth(UserRole.Admin),
-  UserControllers.updateUser
+  UserControllers.updateUser,
 );
 router.delete("/:id", auth(UserRole.Admin), UserControllers.deleteUser);
 

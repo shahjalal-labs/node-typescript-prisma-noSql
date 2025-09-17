@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { Product } from "@prisma/client";
+import prisma from "../../../shared/prisma";
 
 const createProduct = async (data: Product) => {
   await prisma.product.create({ data });
@@ -33,4 +33,3 @@ export const productServices = {
   updateProduct,
   deleteProduct,
 };
-
