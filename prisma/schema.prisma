@@ -28,8 +28,11 @@ model Product{
   name String
   price Int
   description String
-}
+  sellerId User @relation(fields: [sellerId], references: [id])
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 
+}
 
 enum UserStatus {
   Active
