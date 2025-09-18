@@ -3,6 +3,15 @@ import catchAsync from "../../../shared/catchAsync";
 import { BookingService } from "./booking.service";
 import sendResponse from "../../../shared/sendResponse";
 
+const createBooking = catchAsync(async (req, res) => {
+  const booking = await BookingService.createBookingIntoDB(req.body);
+  sendResponse(res, {
+    success: true,
+    statusCode: 200,
+    message: "booking created successfully",
+    data: booking,
+  });
+});
 const getAllBookings = catchAsync(async (req: Request, res: Response) => {
   const bookings = await BookingService.getAllBookingsFromDB();
   sendResponse(res, {
@@ -15,4 +24,5 @@ const getAllBookings = catchAsync(async (req: Request, res: Response) => {
 
 export const BookingController = {
   getAllBookings,
+  createBooking,
 };
