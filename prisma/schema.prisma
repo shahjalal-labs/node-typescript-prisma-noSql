@@ -7,6 +7,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
+//-----//-----//-------START USER MODEL- -----//-----//-------
 model User {
   id           String     @id @default(auto()) @map("_id") @db.ObjectId
   fullName     String
@@ -20,9 +21,14 @@ model User {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   Booking      Booking[]
+  Service      Service[]
 
   @@map("users")
 }
+
+// -----//-----//-------END USER MODEL- -----//-----//-------
+
+//-----//-----//-------START PRODUCT MODEL- -----//-----//-------
 
 model Product {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
@@ -36,15 +42,22 @@ model Product {
   Booking     Booking[]
 }
 
+//-----//-----//-------END PRODUCT MODEL- -----//-----//-------
+
+// -----//-----//-------START BOOKING MODEL- -----//-----//-------
 model Booking {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  productId String  @db.ObjectId
-  product   Product @relation(fields: [productId], references: [id])
-  userId    String  @db.ObjectId
-  user      User    @relation(fields: [userId], references: [id])
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  productId String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  Service   Service? @relation(fields: [serviceId], references: [id])
+  serviceId String?  @db.ObjectId
 
   @@map("bookings")
 }
+
+// -----//-----//-------END BOOKING MODEL- -----//-----//-------
 
 enum UserStatus {
   Active
@@ -57,3 +70,22 @@ enum UserRole {
   Admin
   Seller
 }
+
+// ============================================================
+// ===================== START PRODUCT MODEL ==================
+// ============================================================
+model Service {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  price       Int
+  description String
+  sellerId    String    @db.ObjectId
+  seller      User      @relation(fields: [sellerId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  Booking     Booking[]
+}
+
+// ============================================================
+// ====================== END PRODUCT MODEL ===================
+// ============================================================

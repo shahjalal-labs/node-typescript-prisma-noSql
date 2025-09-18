@@ -1,3 +1,4 @@
+// w:
 import { Product } from "@prisma/client";
 import prisma from "../../../shared/prisma";
 
