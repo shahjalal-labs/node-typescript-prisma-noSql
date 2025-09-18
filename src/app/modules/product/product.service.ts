@@ -9,6 +9,11 @@ const createProduct = async (data: Product) => {
 const getAllProducts = async () => {
   const results = await prisma.product.findMany({
     include: {
+      _count: {
+        select: {
+          Booking: true,
+        },
+      },
       Booking: {
         select: {
           id: true,
