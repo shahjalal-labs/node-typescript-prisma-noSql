@@ -8,6 +8,29 @@ const createBookingIntoDB = async (payload: Booking) => {
   return booking;
 };
 
+/* const getAllBookingsFromDB = async () => {
+  const bookings = await prisma.booking.findMany({
+    include: {
+      product: {
+        select: {
+          description: true,
+          id: true,
+          price: true,
+        },
+      },
+      user: {
+        select: {
+          id: true,
+          fullName: true,
+          email: true,
+        },
+      },
+    },
+  });
+  return bookings;
+};
+ */
+
 const getAllBookingsFromDB = async () => {
   const bookings = await prisma.booking.findMany({
     include: {
@@ -29,7 +52,6 @@ const getAllBookingsFromDB = async () => {
   });
   return bookings;
 };
-
 const getSingleBookingFromDB = async () => {
   // const bookingDetails=await prisma.booking. ;
 };
