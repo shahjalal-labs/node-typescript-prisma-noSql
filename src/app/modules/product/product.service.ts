@@ -7,7 +7,23 @@ const createProduct = async (data: Product) => {
 };
 
 const getAllProducts = async () => {
-  const results = await prisma.product.findMany();
+  const results = await prisma.product.findMany({
+    include: {
+      Booking: {
+        select: {
+          id: true,
+          productId: true,
+          user: {
+            select: {
+              id: true,
+              fullName: true,
+              email: true,
+            },
+          },
+        },
+      },
+    },
+  });
   return results;
 };
 
