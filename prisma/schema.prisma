@@ -59,18 +59,7 @@ model Booking {
 
 // -----//-----//-------END BOOKING MODEL- -----//-----//-------
 
-enum UserStatus {
-  Active
-  Blocked
-  Deleted
-}
-
-enum UserRole {
-  User
-  Admin
-  Seller
-}
-
+// FOR CHECKING COMMENT SEPARATATION
 // ============================================================
 // ===================== START PRODUCT MODEL ==================
 // ============================================================
@@ -89,3 +78,15 @@ model Service {
 // ============================================================
 // ====================== END PRODUCT MODEL ===================
 // ============================================================
+
+enum UserStatus {
+  Active
+  Blocked
+  Deleted
+}
+
+enum UserRole {
+  User
+  Admin
+  Seller
+}

@@ -8,8 +8,8 @@ import sendEmail from "../../../helpers/sendEmail";
 import redisClient from "../../../helpers/redis";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
 import config from "../../../config";
-// create new user
-
+//
+// create new user without otp verification
 const createUserIntoDB = async (payload: User) => {
   const existingUser = await prisma.user.findFirst({
     where: { email: payload.email },
@@ -48,7 +48,7 @@ const createUserIntoDB = async (payload: User) => {
   };
 };
 //
-//create new user
+//create new user with otp verification
 const createUser = async (payload: User) => {
   const existingUser = await prisma.user.findFirst({
     where: { email: payload.email },
