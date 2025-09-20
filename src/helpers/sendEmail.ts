@@ -4,7 +4,7 @@ const sendEmail = async (
   to: string,
   subject: string,
   html: string,
-  text?: string
+  text?: string,
 ) => {
   // Create a transporter
   const transporter = nodemailer.createTransport({

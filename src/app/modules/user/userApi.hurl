@@ -3,6 +3,26 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YzkzY2M3MzVkNDAz
 
 GET http://localhost:5002/api/v1/users/ruhulaminvai/amin
 
+# CREATE USER WITH OTP EMAIL VERIFICATION
+POST http://localhost:5002/api/v1/users/create
+Content-Type: application/json
+
+{
+  "email": "shahjalal.backend@gmail.com",
+  "fullName": "Md. Shahjalal",
+  "password": "Aa@123456"
+}
+# CREATE USER WITH OTP EMAIL VERIFICATION
+
+#--//---- SIGNUP VERIFICATION
+POST http://localhost:5002/api/v1/users/signup-verification
+Content-Type: application/json
+
+{
+  "email": "shahjalal.backend@gmail.com",
+  "otp": "7835"
+}
+#--//----- SIGNUP VERIFICATION
 
 
 POST http://localhost:5002/api/v1/auth/google-login

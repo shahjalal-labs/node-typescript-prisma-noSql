@@ -15,7 +15,7 @@ const CreateUser = catchAsync(async (req, res) => {
   });
 });
 //
-// register user
+// register user with otp email verification
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const result = await userService.createUser(req.body);
   sendResponse(res, {

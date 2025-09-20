@@ -7,6 +7,7 @@ import auth from "../../middlewares/auth";
 
 const router = express.Router();
 
+// create user with otp email verification
 router.post(
   "/create",
   validateRequest(userValidation.userRegisterValidationSchema),
