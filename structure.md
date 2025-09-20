@@ -7,6 +7,11 @@
 ├── module.js
 ├── package.json
 ├── package-lock.json
+├── pr
+│   ├── prismaQuery.md
+│   ├── prismaQuery.ts
+│   ├── redisQuery.ts
+│   └── sanitize.ts
 ├── prisma
 │   └── schema.prisma
 ├── README.md
@@ -25,10 +30,23 @@
 │   │   │   └── validateRequest.ts
 │   │   ├── modules
 │   │   │   ├── auth
+│   │   │   │   ├── authApi.hurl
 │   │   │   │   ├── auth.controller.ts
 │   │   │   │   ├── auth.routes.ts
 │   │   │   │   ├── auth.service.ts
 │   │   │   │   └── auth.validation.ts
+│   │   │   ├── booking
+│   │   │   │   ├── bookingApi.hurl
+│   │   │   │   ├── booking.controller.ts
+│   │   │   │   ├── booking.route.ts
+│   │   │   │   ├── booking.service.ts
+│   │   │   │   └── booking.validation.ts
+│   │   │   ├── product
+│   │   │   │   ├── productApi.hurl
+│   │   │   │   ├── product.controller.ts
+│   │   │   │   ├── product.routes.ts
+│   │   │   │   ├── product.service.ts
+│   │   │   │   └── product.validation.ts
 │   │   │   └── user
 │   │   │       ├── userApi.hurl
 │   │   │       ├── user.controller.ts
@@ -38,6 +56,9 @@
 │   │   └── routes
 │   │       └── index.ts
 │   ├── app.ts
+│   ├── assets
+│   │   ├── bd.png
+│   │   └── profile
 │   ├── config
 │   │   └── index.ts
 │   ├── errors
@@ -73,6 +94,6 @@
 │   └── google.png
 └── vercel.json
 
-16 directories, 55 files
+20 directories, 72 files
 
 ```
