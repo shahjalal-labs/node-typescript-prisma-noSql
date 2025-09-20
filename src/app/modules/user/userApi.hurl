@@ -42,7 +42,7 @@ POST http://localhost:5002/api/v1/users/create-user
 Content-Type: application/json
 
 {
-  "email": "hasan.doe@example.com",
+  "email": "imranjamil.ux@gmail.com",
   "password": "Aa@123456",
   "role":"Seller",
   "fullName": "Jane Doe"
