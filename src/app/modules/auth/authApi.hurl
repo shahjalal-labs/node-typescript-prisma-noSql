@@ -72,3 +72,27 @@ Content-Type: application/json
 GET {{baseUrl}}/auth/profile
 Authorization: <JWT_TOKEN>
 
+
+# ============================================================
+# ===============   SEnd FORGOT PASSWORD OTP      =============
+# ============================================================
+
+POST {{baseUrl}}/auth/send-otp
+
+Content-Type: application/json
+{
+  "email": "shahjalal.backend@gmail.com"
+}
+
+
+# ============================================================
+# ===============   verifyForgotPasswordOtpCode  =============
+# ============================================================
+
+POST {{baseUrl}}/auth/verify-otp
+
+Content-Type: application/json
+{
+  "email": "shahjalal.backend@gmail.com",
+  "otp": "4111"
+}
