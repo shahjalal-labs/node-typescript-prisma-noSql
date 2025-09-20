@@ -94,5 +94,21 @@ POST {{baseUrl}}/auth/verify-otp
 Content-Type: application/json
 {
   "email": "shahjalal.backend@gmail.com",
-  "otp": "4111"
+  "otp": "3039"
+}
+
+
+# ============================================================
+# ===============   verifyForgotPasswordOtpCode  =============
+# ============================================================
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Y2U0Y2QwOGYyOWQ5YTUxNGVkZjc5YyIsImVtYWlsIjoic2hhaGphbGFsLmJhY2tlbmRAZ21haWwuY29tIiwiaWF0IjoxNzU4MzYzNTc3LCJleHAiOjE3NTk2NTk1Nzd9.3AVJAPMdwGp_AExfSaEuzs_PbrGRFwn7Wg5dEj9HahI
+
+PATCH {{baseUrl}}/auth/reset-password
+
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Y2U0Y2QwOGYyOWQ5YTUxNGVkZjc5YyIsImVtYWlsIjoic2hhaGphbGFsLmJhY2tlbmRAZ21haWwuY29tIiwiaWF0IjoxNzU4MzYzNTc3LCJleHAiOjE3NTk2NTk1Nzd9.3AVJAPMdwGp_AExfSaEuzs_PbrGRFwn7Wg5dEj9HahI
+
+Content-Type: application/json
+
+{
+  "newPassword": "newPassword"
 }
