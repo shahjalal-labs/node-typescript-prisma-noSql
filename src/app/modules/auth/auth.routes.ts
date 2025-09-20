@@ -19,9 +19,9 @@ router.post(
   authController.googleLogin,
 );
 // with authorization
-// router.get("/profile", auth(), authController.myProfile);
+router.get("/profile", auth(), authController.myProfile);
 //  without authorization
-router.get("/profile", authController.myProfile);
+// router.get("/profile", authController.myProfile);
 router.patch(
   "/update/user-location",
   auth(),
