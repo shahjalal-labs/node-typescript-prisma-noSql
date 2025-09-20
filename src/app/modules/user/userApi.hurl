@@ -20,7 +20,7 @@ Content-Type: application/json
 
 {
   "email": "shahjalal.backend@gmail.com",
-  "otp": "7835"
+  "otp": "6089"
 }
 #--//----- SIGNUP VERIFICATION
 
@@ -48,3 +48,6 @@ Content-Type: application/json
   "fullName": "Jane Doe"
 }
 #--------- CREATE USER WITHOUT OTP EMAIL VERIFICATION-----------00
+
+GET http://localhost:5002/api/v1/users/ruhulaminvai/amin
+

@@ -4,6 +4,7 @@ import validateRequest from "../../middlewares/validateRequest";
 import { userValidation } from "./user.validation";
 import { UserRole } from "@prisma/client";
 import auth from "../../middlewares/auth";
+import { redisQuery } from "../../../../pr/redisQuery";
 
 const router = express.Router();
 
@@ -35,5 +36,8 @@ router.put(
   UserControllers.updateUser,
 );
 router.delete("/:id", auth(UserRole.Admin), UserControllers.deleteUser);
+router.get("/redis", async (r, s) => {
+  redisQuery();
+});
 
 export const userRoutes = router;

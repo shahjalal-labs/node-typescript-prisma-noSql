@@ -8,6 +8,7 @@ import sendEmail from "../../../helpers/sendEmail";
 import redisClient from "../../../helpers/redis";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
 import config from "../../../config";
+//p: AUTH SERVICE INTERPRET WITH CHATGPT: https://chatgpt.com/share/68ce4ed1-9374-800c-8299-01a5d9b0dec8
 //
 // create new user without otp verification
 const createUserIntoDB = async (payload: User) => {
