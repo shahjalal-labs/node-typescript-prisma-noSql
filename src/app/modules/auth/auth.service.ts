@@ -1,3 +1,4 @@
+// prisma chatgpt reference: https://chatgpt.com/share/68ce35fd-296c-800c-98ee-55228af26de8
 import prisma from "../../../shared/prisma";
 import bcrypt from "bcryptjs";
 import ApiError from "../../../errors/ApiErrors";

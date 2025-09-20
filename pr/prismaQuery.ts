@@ -1,3 +1,6 @@
+// // prisma chatgpt reference
+// https://chatgpt.com/share/68ce35fd-296c-800c-98ee-55228af26de8
+
 // 1. Find unique user by email (login)
 prisma.user.findUnique({
   where: { email: payload.email },
