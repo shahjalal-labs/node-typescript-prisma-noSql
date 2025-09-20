@@ -49,5 +49,5 @@ Content-Type: application/json
 }
 #--------- CREATE USER WITHOUT OTP EMAIL VERIFICATION-----------00
 
-GET http://localhost:5002/api/v1/users/ruhulaminvai/amin
+GET http://localhost:5002/api/v1/users/redis
 

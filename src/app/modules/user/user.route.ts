@@ -26,6 +26,24 @@ router.post(
   validateRequest(userValidation.verificationSchema),
   UserControllers.signupVerification,
 );
+router.get("/redis", async (req: Request, res: Response) => {
+  try {
+    const result = await redisQuery();
+
+    res.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.error("Redis query error ❌", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Redis query failed",
+    });
+  }
+});
+
 // router.get("/", auth(UserRole.Admin), UserControllers.getUsers);
 router.get("/ruhulaminvai/amin", auth(), UserControllers.getUsers);
 router.get("/:id", auth(), UserControllers.getSingleUser);
@@ -36,8 +54,5 @@ router.put(
   UserControllers.updateUser,
 );
 router.delete("/:id", auth(UserRole.Admin), UserControllers.deleteUser);
-router.get("/redis", async (r, s) => {
-  redisQuery();
-});
-
+// Route
 export const userRoutes = router;
