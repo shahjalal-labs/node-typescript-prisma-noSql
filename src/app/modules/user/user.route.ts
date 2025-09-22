@@ -4,7 +4,6 @@ import validateRequest from "../../middlewares/validateRequest";
 import { userValidation } from "./user.validation";
 import { UserRole } from "@prisma/client";
 import auth from "../../middlewares/auth";
-import { redisQuery } from "../../../../pr/redisQuery";
 
 const router = express.Router();
 
@@ -26,23 +25,6 @@ router.post(
   validateRequest(userValidation.verificationSchema),
   UserControllers.signupVerification,
 );
-router.get("/redis", async (req: Request, res: Response) => {
-  try {
-    const result = await redisQuery();
-
-    res.json({
-      success: true,
-      data: result,
-    });
-  } catch (error) {
-    console.error("Redis query error ❌", error);
-
-    res.status(500).json({
-      success: false,
-      message: "Redis query failed",
-    });
-  }
-});
 
 // router.get("/", auth(UserRole.Admin), UserControllers.getUsers);
 router.get("/ruhulaminvai/amin", auth(), UserControllers.getUsers);
